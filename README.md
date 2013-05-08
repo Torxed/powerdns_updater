@@ -3,6 +3,21 @@ PowerDNS Updater
 This is a toolkit for creating, updating and maintaining PowerDNS 3.2+
 
 
+local_tool
+----------
+
+The local tool is a small CLI that interacts with the backend.<br>
+It consists of a few short "commands" that executes backend functions.<br>
+And these are the following commands:<br>
+
+ * add [domain|record]
+ * modify
+ * replace
+
+With these short commands you'll the the options to add a record or domain,<br>
+modify a existing record via name specification or replace old ip's with new ones.
+
+
 backend
 -------
 
