@@ -127,6 +127,6 @@ while 1:
 				values[key] = value
 
 		if not 'old' in values or 'new' in values:
-			print ' [!] At least specify a old and new IP to match in database!\n'
+			print(' [!] At least specify a old and new IP to match in database!\n')
 		else:
 			backend.replace_all_ip(values['old'], values['new'])
