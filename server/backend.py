@@ -51,7 +51,7 @@ class SQL():
 		else:
 			return result[0][0]
 
-	def add_record(self, _type='A', name='3net.se', ip='166.78.238.96', domain=None):
+	def add_record(self, _type='A', name='3net.se', ip='166.78.238.96', domain=None, prio='NULL'):
 		"""
 		Some examples:
 
@@ -70,7 +70,7 @@ class SQL():
 
 		query = ""
 		query += "INSERT INTO records (domain_id, name, content, type,ttl,prio)"
-		query += " VALUES (" + str(domain_id) + ",'" + name + "','" + ip + "','" + _type + "',60,NULL);"
+		query += " VALUES (" + str(domain_id) + ",'" + name + "','" + ip + "','" + _type + "',60," + prio + ");"
 		self.query(query)
 
 	def add_domain(self, name='3net.se'):
@@ -105,11 +105,13 @@ class SQL():
 			## on the records (shouldn't happen?) and we only want to affect a certain ID
 		self.query("UPDATE records SET content='" + ip + "' WHERE name='" + name + "' and type='" + record + "';")
 
-	def replace_all_ip(self, ip, newip):
+	def replace_all_ip(self, ip, newip, record=None):
 		self.query("UPDATE records SET content='" + newip + "' WHERE content='" + ip + "';")		
 
-test = SQL('./database.sqlite')
-test.add_domain()
-test.add_record()
-test.modify_record('3net.se', '127.0.0.1')
-test.replace_all_ip('127.0.0.1', '192.168.0.1')
+
+if __name__ == '__main__':
+	test = SQL('./database.sqlite')
+	test.add_domain()
+	test.add_record()
+	test.modify_record('3net.se', '127.0.0.1')
+	test.replace_all_ip('127.0.0.1', '192.168.0.1')
