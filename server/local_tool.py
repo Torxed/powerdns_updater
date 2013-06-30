@@ -34,7 +34,8 @@ print('Tested on Python versions:' + ' '.join(__verified__))
 print('\tValid options are:')
 print('\tadd [domain|record] - create a record or domain')
 print('\tmodify - modify a record')
-print('\treplace - Replace IP on records\n')
+print('\treplace - Replace IP on records')
+print('\tshow - Dumps the current table\n')
 
 while 1:
 	inp = _input('\n> ')
@@ -43,7 +44,9 @@ while 1:
 	if low_inp in ('quit', 'exit', 'break', 'die'):
 		break
 
-	if low_inp[:3] == 'add':
+	if low_inp == 'show':
+		backend.show()
+	elif low_inp[:3] == 'add':
 		if not 'domain' in low_inp or 'record' in low_inp:
 			low_inp += ' ' + _input('\nRecord or domain?> ')
 		

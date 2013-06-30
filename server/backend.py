@@ -34,6 +34,12 @@ class SQL():
 
 		return results
 
+	def show(self):
+		results = self.query('SELECT * FROM records;')
+		for record in results:
+			print(str(record))
+		print('')
+
 	def create_clean_db(self):
 		if isfile(self.database): remove(self.database)
 
