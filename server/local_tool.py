@@ -47,7 +47,7 @@ while 1:
 	if low_inp == 'show':
 		backend.show()
 	elif low_inp[:3] == 'add':
-		if not 'domain' in low_inp or 'record' in low_inp:
+		if not 'domain' in low_inp or not 'record' in low_inp:
 			low_inp += ' ' + _input('\nRecord or domain?> ')
 		
 		values = {}
@@ -89,6 +89,7 @@ while 1:
 				print(' [!] At least a name for the domain must be given!\n')
 			else:
 				backend.add_domain(name=values['name'])
+				print('\t[?] Don\'t forget to add a NS record via "add record" for this domain!')
 	elif low_inp[:3] == 'mod' or low_inp[:6] == 'modify':
 		values = {}
 		print('Enter: "key=value" to commit to the database.')

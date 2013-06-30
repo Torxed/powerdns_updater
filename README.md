@@ -6,6 +6,8 @@ This is a toolkit for creating, updating and maintaining PowerDNS 3.2+
 local_tool
 ----------
 
+Launch by: `user@host ~$ python local_tool.py /path/to/database.sqlite`
+
 The local tool is a small CLI that interacts with the backend.<br>
 It consists of a few short "commands" that executes backend functions.<br>
 And these are the following commands:<br>
